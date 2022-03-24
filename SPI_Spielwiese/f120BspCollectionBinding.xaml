@@ -1,0 +1,50 @@
+﻿<Window x:Class="SPI_Spielwiese.f120BspCollectionBinding"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SPI_Spielwiese"
+        mc:Ignorable="d"
+        Title="f120BspCollectionBinding" Height="450" Width="800">
+    
+        <Window.Resources>
+
+            <DataTemplate x:Key="personTemplate">
+                <Border BorderBrush="Black" BorderThickness="2">
+                    <StackPanel Margin="4" Orientation="Horizontal">
+                        <TextBlock Text="{Binding Name}" Foreground="Red" FontSize="20" TextAlignment="Center" VerticalAlignment="Center" />
+                        <TextBlock Text="{Binding Age}" FontSize="16" TextAlignment="Right" VerticalAlignment="Center"/>
+                    </StackPanel>
+                </Border>
+            </DataTemplate>
+
+        </Window.Resources>    
+    
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <ListBox ItemTemplate="{DynamicResource personTemplate}"  x:Name="lstPerson" IsSynchronizedWithCurrentItem="True" HorizontalContentAlignment="Stretch" >
+            <!-- 
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Border BorderBrush="Black" BorderThickness="2">
+                        <StackPanel Margin="4" Orientation="Horizontal">
+                            <TextBlock Text="{Binding Name}" Foreground="Red" FontSize="20" TextAlignment="Center" VerticalAlignment="Center" />
+                            <TextBlock Text="{Binding Age}" FontSize="16" TextAlignment="Right" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </Border>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+            -->
+            
+        </ListBox>
+        
+        <ComboBox x:Name="cbxPerson" Grid.Row="1" ItemsSource="{Binding}" DisplayMemberPath="Name" IsSynchronizedWithCurrentItem="True"/>
+        <Button x:Name="btnAdd" Content="Add" Grid.Row="2" Click="btnAdd_Click"  />
+    </Grid>
+</Window>

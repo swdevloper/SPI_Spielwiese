@@ -1,0 +1,60 @@
+﻿<Window x:Class="SPI_Spielwiese.f130BspConverter"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SPI_Spielwiese"
+        mc:Ignorable="d"
+        Title="f130BspConverter" Height="450" Width="800" WindowStartupLocation="CenterScreen" Closing="Window_Closing">
+    <Window.Resources>
+        <local:GerneralForecast2BrushConverter x:Key="gf2brush" />
+    </Window.Resources>
+
+
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Orientation="Horizontal" >
+            <TextBlock Text="Select number of days for forecast" Margin="10" VerticalAlignment="Center"/>
+            <ComboBox x:Name="cbxNumberOfDays" Width="50" SelectedIndex="6" Margin="10" VerticalAlignment="Center"/>
+            <Button x:Name="btnForecast" Content="Get forecast" Click="btnForecast_Click" Margin="10" Padding="5" VerticalAlignment="Center"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Orientation="Horizontal">
+            <TextBlock Text="Select unit" Margin="10" VerticalAlignment="Center"/>
+            <RadioButton Content="Celsius" GroupName="grpUnit" IsChecked="True" Margin="10" VerticalAlignment="Center"/>
+            <RadioButton Content="Fahrenheit" GroupName="grpUnit" Margin="10" VerticalAlignment="Center"/>
+        </StackPanel>
+
+        <ListBox Grid.Row="2" ItemsSource="{Binding}" HorizontalContentAlignment="Stretch" ItemTemplate="{StaticResource ResourceKey=templateForecast}">
+            <!--<ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Border Margin="4" BorderBrush="DarkGray" BorderThickness="2" Background="{Binding Converter={StaticResource gf2brush}}" Padding="5">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding GeneralForecast}"
+                                       FontSize="20"
+                                       FontWeight="Bold"
+                                       VerticalAlignment="Center" />
+
+                            <TextBlock Text="{Binding TemperatureLow, StringFormat='Low: \{0:N2\}'}"
+                                       FontSize="16"
+                                       Margin="10,0,0,0"
+                                       VerticalAlignment="Center"/>
+
+                            <TextBlock Text="{Binding TemperatureHigh, StringFormat='High: \{0:N2\}'}" 
+                                       FontSize="16"
+                                       Margin="20,0,0,0"
+                                       VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </Border>
+                </DataTemplate>
+            </ListBox.ItemTemplate>-->
+        </ListBox>
+
+    </Grid>
+</Window>
