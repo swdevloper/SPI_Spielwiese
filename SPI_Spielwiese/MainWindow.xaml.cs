@@ -69,5 +69,13 @@ namespace SPI_Spielwiese
             this.Hide();
             f.Show();
         }
+
+        private void btnCommands_Click(object sender, RoutedEventArgs e)
+        {
+            f150BspCommands f = new f150BspCommands(this);
+            f.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            this.Hide();
+            f.Show();
+        }
     }
 }

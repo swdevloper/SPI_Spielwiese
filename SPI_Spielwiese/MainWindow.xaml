@@ -13,6 +13,7 @@
             <Button x:Name="btnBindingCollection" Content="Bsp: Binding Collection" Click="btnBindingCollection_Click" />
             <Button x:Name="btnBindingConverter" Content="Bsp: Binding Converter" Click="btnBindingConverter_Click" />
             <Button x:Name="btnStyles" Content="Bsp: Styles" Click="btnStyles_Click" />
+            <Button x:Name="btnCommands" Content="Bsp: Commands" Click="btnCommands_Click" />
         </StackPanel>
     </Grid>
 </Window>
