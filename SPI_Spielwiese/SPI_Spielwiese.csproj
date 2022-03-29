@@ -88,6 +88,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="EMail.cs" />
     <Compile Include="f100BspSimple.xaml.cs">
       <DependentUpon>f100BspSimple.xaml</DependentUpon>
     </Compile>
