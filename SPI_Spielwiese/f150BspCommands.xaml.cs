@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SPI_Spielwiese.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -31,12 +32,14 @@ namespace SPI_Spielwiese
         public f150BspCommands()
         {
             InitializeComponent();
+            this.DataContext = new f150BspCommandsViewModel();
 
         }
 
         public f150BspCommands(Window f) : this()
         {
             _callerWindow = f;
+
         }
 
         private void CommandBinding_Executed(object sender, ExecutedRoutedEventArgs e)
